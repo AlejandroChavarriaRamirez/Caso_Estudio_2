@@ -72,7 +72,7 @@ public class Principal {
         lista.insertarFinal(inscripcion2);
         lista.insertarMedio(inscripcion3);
 
-        System.out.println("=== Lista antes de modificar ===");
+        //Lista antes de modificar
         lista.mostrar();
 
         Cliente clienteMod = new Cliente();
@@ -89,7 +89,7 @@ public class Principal {
 
         lista.modificar("202220222", inscripcionMod);
 
-        System.out.println("=== Lista despues de modificar ===");
+        // Lista despues de modificar
         lista.mostrar();
 
     }
