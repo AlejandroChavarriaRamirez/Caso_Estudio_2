@@ -78,21 +78,20 @@ public class ListaInscripciones {
                     + " / Nivel: " + aux.getDato().getNivelDificultad() + "\n";
             s += "-------------------------------\n";
             aux = aux.getSiguiente();
-        }
+            }
                 JOptionPane.showMessageDialog(null, s, "Lista de Inscripciones", JOptionPane.PLAIN_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "Lista vacia", "Lista de Inscripciones", JOptionPane.PLAIN_MESSAGE);
-            }
         }
+    }
     
     public void modificar(String identificacion, Inscripcion nuevaInfo) {
     Nodo aux = inicio;
     while (aux != null) {
         if (aux.getDato().getCliente().getIdentificacion().equals(identificacion)) {
             aux.setDato(nuevaInfo);
-        }
+            }
         aux = aux.getSiguiente();
+        }
     }
-}
-
 }
