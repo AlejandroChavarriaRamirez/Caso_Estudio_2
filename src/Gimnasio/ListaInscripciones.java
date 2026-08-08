@@ -4,6 +4,8 @@
  */
 package Gimnasio;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aleja
@@ -60,26 +62,28 @@ public class ListaInscripciones {
     }
 
     public void mostrar() {
-        if (!vacia()) {
-            Nodo aux = inicio;
-            while (aux != null) {
-                System.out.println("Clase: " + aux.getDato().getClase().getNombre()
-                        + " / Tipo: " + aux.getDato().getClase().getTipoEntrenamiento()
-                        + " / Duracion: " + aux.getDato().getClase().getDuracion()
-                        + " / Horario: " + aux.getDato().getClase().getHorario());
-                System.out.println("Cliente: " + aux.getDato().getCliente().getNombre()
-                        + " / Identificacion: " + aux.getDato().getCliente().getIdentificacion()
-                        + " / Telefono: " + aux.getDato().getCliente().getTelefono()
-                        + " / Correo: " + aux.getDato().getCliente().getCorreo());
-                System.out.println("Fecha inscripcion: " + aux.getDato().getFechaInscripcion()
-                        + " / Nivel: " + aux.getDato().getNivelDificultad());
-                System.out.println("-------------------------------");
-                aux = aux.getSiguiente();
-            }
-        } else {
-            System.out.println("Lista vacia");
+    if (!vacia()) {
+        String s = "";
+        Nodo aux = inicio;
+        while (aux != null) {
+            s += "Clase: " + aux.getDato().getClase().getNombre()
+                    + " / Tipo: " + aux.getDato().getClase().getTipoEntrenamiento()
+                    + " / Duracion: " + aux.getDato().getClase().getDuracion()
+                    + " / Horario: " + aux.getDato().getClase().getHorario() + "\n";
+            s += "Cliente: " + aux.getDato().getCliente().getNombre()
+                    + " / Identificacion: " + aux.getDato().getCliente().getIdentificacion()
+                    + " / Telefono: " + aux.getDato().getCliente().getTelefono()
+                    + " / Correo: " + aux.getDato().getCliente().getCorreo() + "\n";
+            s += "Fecha inscripcion: " + aux.getDato().getFechaInscripcion()
+                    + " / Nivel: " + aux.getDato().getNivelDificultad() + "\n";
+            s += "-------------------------------\n";
+            aux = aux.getSiguiente();
         }
-    }
+                JOptionPane.showMessageDialog(null, s, "Lista de Inscripciones", JOptionPane.PLAIN_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Lista vacia", "Lista de Inscripciones", JOptionPane.PLAIN_MESSAGE);
+            }
+        }
     
     public void modificar(String identificacion, Inscripcion nuevaInfo) {
     Nodo aux = inicio;
